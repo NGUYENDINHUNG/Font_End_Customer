@@ -3,7 +3,7 @@ import "./ExporeMenu.css";
 import { menu_list } from "../../assets/assets";
 
 function ExporeMenu({ category, setCategory }) {
-  console.log('««««« setCategory »»»»»', setCategory);
+ 
   return (
     <div className="explore-menu" id="explore-menu">
       <h1>Expore our menu</h1>

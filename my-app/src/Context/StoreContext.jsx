@@ -6,6 +6,9 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
   const [cartItem, setCartItem] = useState({});
 
+  const url = "http://localhost:4000";
+  const [token, setToken] = useState("");
+
   const addToCart = (itemId) => {
     if (!cartItem[itemId]) {
       //kiểm tra xem có id sản phẩm tương ứng trong giỏ hàng chưa... nếu chưa thì hàm (!cartItem[itemId]) sẽ trả về giá trị là true//bản chất giá trị của hàm (!cartItem[itemId])  là false
@@ -22,14 +25,9 @@ const StoreContextProvider = (props) => {
     setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 })); //mục đích giảm số lượng hàng hóa trong giỏ hàng  ...prev, [itemId]: =>>đã có trong giỏ hàng : prev[itemId] - 1 }  trừ đi một sản phảm có id tương ứng
   };
 
-  useEffect(() => {
-    console.log("««««« cartItem »»»»»", cartItem);
-  }, [cartItem]);
-
   const getTotalCartAmount = () => {
     let totalAmount = 0;
     for (const item in cartItem) {
-      console.log('««««« item »»»»»', item);
       if (cartItem[item] > 0) {
         let itemInfo = food_list.find((product) => product._id === item);
         totalAmount += itemInfo.price * cartItem[item];
@@ -38,10 +36,6 @@ const StoreContextProvider = (props) => {
     return totalAmount;
   };
 
-  useEffect(()=>{
-    console.log('««««« getTotalCartAmount »»»»»',getTotalCartAmount );
-  },[getTotalCartAmount])
-
   const contextValue = {
     food_list,
     cartItem,
@@ -49,6 +43,9 @@ const StoreContextProvider = (props) => {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
+    url,
+    token,
+    setToken,
   };
   return (
     <StoreContext.Provider value={contextValue}>

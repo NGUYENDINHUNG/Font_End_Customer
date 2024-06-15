@@ -51,4 +51,3 @@ function PlaceOrder(props) {
 }
 
 export default PlaceOrder;
-s
