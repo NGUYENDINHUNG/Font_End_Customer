@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
-import { food_list } from "../assets/assets";
 import axios from "axios";
+import { food_list } from "../assets/asset"
+
 
 export const StoreContext = createContext(null);
 
@@ -64,6 +65,7 @@ const StoreContextProvider = (props) => {
     token,
     setToken,
   };
+
   return (
     <StoreContext.Provider value={contextValue}>
       {props.children}

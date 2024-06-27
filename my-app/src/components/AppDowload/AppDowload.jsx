@@ -1,6 +1,6 @@
 import React from 'react';
 import "./AppDowload.css"
-import { assets } from '../../assets/assets';
+import { assets } from '../../assets/asset';
 
 
 

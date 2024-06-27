@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React ,{useState} from "react";
 import "./ExporeMenu.css";
-import { menu_list } from "../../assets/assets";
+import { menu_list } from "../../assets/asset";
 
 function ExporeMenu({ category, setCategory }) {
  
